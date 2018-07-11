@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<pre>------------------------------------------------------------------------------</pre>
+<pre><font color="green">{{ engine.response }}</font></pre>
+<pre>------------------------------------------------------------------------------</pre>
+<h1><font color="black">{{ engine.room_name }}</font></h1>
+
+<pre><font color="blue">{{ engine.room_description }}</font></pre>
+
+{% if engine.solved %}
+    <pre>------------------------------------------------------------------------------</pre>
+    <pre><font color="purple">{{ engine.end }}</font></pre>
+    <pre>------------------------------------------------------------------------------</pre>
+    <p><a href="/">Play Again?</a></p>
+{% else %}
+    <p>
+    <form action="/game" method="POST">
+        What do you do Morty? > <input type="text" name="action"> <input type="SUBMIT">
+    </form>
+    </p>
+{% endif %}
+
+{% endblock %}
